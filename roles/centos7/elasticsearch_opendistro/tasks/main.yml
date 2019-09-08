@@ -1,0 +1,21 @@
+---
+# tasks file for elasti- name: include java.yml
+- hostname:
+    name: "{{ inventory_hostname }}"
+
+- name: Populate the nodes to /etc/hosts
+  import_tasks: etchosts.yml
+
+- name: include java.yml
+  include: java.yml
+  when: es_java_install
+
+- name: include elasticsearch.yml
+  include: elasticsearch.yml
+
+- name: include opendistro security
+  include: opendistro_security.yml
+  when: opendistro_security_install
+
+- name: Wait for elasticsearch to startup
+  wait_for: host={{ hostvars[inventory_hostname]['ip'] }} port={{es_api_port}} delay=5 connect_timeout=1

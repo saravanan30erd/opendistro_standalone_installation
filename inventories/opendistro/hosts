@@ -1,0 +1,8 @@
+es1 ansible_host=10.0.10.1  ansible_user=root ip=10.0.10.1
+es2 ansible_host=10.0.10.2  ansible_user=root ip=10.0.10.2
+es3 ansible_host=10.0.10.3  ansible_user=root ip=10.0.10.3
+
+[es-cluster]
+es1
+es2
+es3
