@@ -11,7 +11,7 @@ opendistro_security_version: 1.1.0.0
 opendistro_security_download_url: https://d3g5vo6xdbdb9a.cloudfront.net/downloads/elasticsearch-plugins/opendistro-security/
 
 ## Admin user credentials will be used for User & Roles management and cluster operations
-admin_password: Test@7890
+admin_password: Test@123
 
 ## Kibana server credentials will be used internally by the Kibana server
 kibanaserver_password: Test@6789
