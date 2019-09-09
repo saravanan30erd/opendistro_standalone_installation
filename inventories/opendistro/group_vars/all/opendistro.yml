@@ -15,3 +15,9 @@ admin_password: Test@7890
 
 ## Kibana server credentials will be used internally by the Kibana server
 kibanaserver_password: Test@6789
+
+# Install opendistro security plugin in Kibana
+opendistro_security_install_kibana: true
+
+# URL to dowload the opendistro kibana plugins
+opendistro_security_kibana_download_url: https://d3g5vo6xdbdb9a.cloudfront.net/downloads/kibana-plugins/opendistro-security/

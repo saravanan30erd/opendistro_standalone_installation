@@ -7,7 +7,7 @@
   register: download
 
 - name: Security Plugin Install | Install the Opendistro security plugin
-  command: "{{ es_plugin_bin_path }} -b file://{{ es_home }}/opendistro_security-{{ opendistro_security_version }}.zip"
+  command: "{{ es_plugin_bin_path }} install -b file://{{ es_home }}/opendistro_security-{{ opendistro_security_version }}.zip"
   when: download.changed
   register: install
 
@@ -68,6 +68,7 @@
     - "{{ inventory_hostname }}.pem"
     - "{{ inventory_hostname }}_http.key"
     - "{{ inventory_hostname }}_http.pem"
+    - "{{ inventory_hostname }}_elasticsearch_config_snippet.yml"
     - admin.key
     - admin.pem
   when: install.changed
