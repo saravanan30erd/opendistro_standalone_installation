@@ -24,7 +24,7 @@
 - name: Security Plugin Install | Download certificates generation tool
   local_action:
     module: get_url
-    url: https://search.maven.org/remotecontent?filepath=com/floragunn/search-guard-tlstool/1.7/search-guard-tlstool-1.7.zip
+    url: https://search.maven.org/remotecontent?filepath=com/floragunn/search-guard-tlstool/1.5/search-guard-tlstool-1.5.zip
     dest: /tmp/opendistro-nodecerts/search-guard-tlstool.zip
   run_once: true
   when: install.changed
