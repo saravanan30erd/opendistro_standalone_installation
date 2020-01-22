@@ -2,7 +2,7 @@
 # defaults file for elasticsearch
 es_java_install: true
 update_java: false
-es_version: "7.1.1"
+es_version: "7.3.2"
 es_use_repository: true
 es_package_name: "elasticsearch-oss"
 es_restart_on_change: true
@@ -23,7 +23,7 @@ es_plugin_bin_path: /usr/share/elasticsearch/bin/elasticsearch-plugin
 es_sec_plugin_conf_path: /usr/share/elasticsearch/plugins/opendistro_security/securityconfig
 es_sec_plugin_tools_path: /usr/share/elasticsearch/plugins/opendistro_security/tools
 
-kibana_version: "7.1.1"
+kibana_version: "7.3.2"
 kibana_package_name: "kibana-oss"
 
 es_nodes_kibana: |-
