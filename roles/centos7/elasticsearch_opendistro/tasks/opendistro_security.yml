@@ -90,6 +90,7 @@
   systemd:
     name: elasticsearch
     state: restarted
+    enabled: yes
   when: install.changed
 
 - name: Security Plugin Install | Copy the opendistro security internal users template

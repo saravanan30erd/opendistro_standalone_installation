@@ -17,13 +17,5 @@
   include: opendistro_security.yml
   when: opendistro_security_install
 
-- name: include kibana installation
-  include: kibana.yml
-  when: inventory_hostname in groups['kibana']
-
-- name: include opendistro security for kibana
-  include: opendistro_security_kibana.yml
-  when: opendistro_security_install_kibana and inventory_hostname in groups['kibana']
-
 - name: Wait for elasticsearch to startup
   wait_for: host={{ hostvars[inventory_hostname]['ip'] }} port={{es_api_port}} delay=5 connect_timeout=1

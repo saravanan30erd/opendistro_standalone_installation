@@ -13,6 +13,3 @@
     - es_restart_on_change
     - es_start_service
   register: es_restarted
-
-- name: restart kibana
-  systemd: name=kibana state=restarted enabled=yes

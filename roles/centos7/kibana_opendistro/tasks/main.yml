@@ -1,0 +1,18 @@
+---
+# tasks file for elasti- name: include java.yml
+- hostname:
+    name: "{{ inventory_hostname }}"
+
+- name: Populate the nodes to /etc/hosts
+  import_tasks: etchosts.yml
+
+- name: include java.yml
+  include: java.yml
+  when: es_java_install
+
+- name: include kibana installation
+  include: kibana.yml
+
+- name: include opendistro security for kibana
+  include: opendistro_security_kibana.yml
+  when: opendistro_security_install_kibana
