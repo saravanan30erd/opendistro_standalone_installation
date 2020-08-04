@@ -13,9 +13,25 @@
 - name: include elasticsearch installation
   include: elasticsearch.yml
 
-- name: include opendistro security for elasticsearch
+- name: include opendistro security plugin for elasticsearch
   include: opendistro_security.yml
   when: opendistro_security_install
+
+- name: include opendistro alerting plugin for elasticsearch
+  include: opendistro_alerting.yml
+  when: opendistro_alerting_install
+
+- name: include opendistro sql plugin for elasticsearch
+  include: opendistro_sql.yml
+  when: opendistro_sql_install
+
+- name: include opendistro ism plugin for elasticsearch
+  include: opendistro_ism.yml
+  when: opendistro_ism_install
+
+- name: include opendistro Anomaly Detection plugin for elasticsearch
+  include: opendistro_ad.yml
+  when: opendistro_ad_install
 
 - name: Wait for elasticsearch to startup
   wait_for: host={{ hostvars[inventory_hostname]['ip'] }} port={{es_api_port}} delay=5 connect_timeout=1

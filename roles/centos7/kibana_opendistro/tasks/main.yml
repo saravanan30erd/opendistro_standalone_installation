@@ -16,3 +16,11 @@
 - name: include opendistro security for kibana
   include: opendistro_security_kibana.yml
   when: opendistro_security_install_kibana
+
+- name: include opendistro alerting for kibana
+  include: opendistro_alerting_kibana.yml
+  when: opendistro_alerting_install_kibana
+
+- name: include opendistro ism for kibana
+  include: opendistro_ism_kibana.yml
+  when: opendistro_ism_install_kibana

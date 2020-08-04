@@ -1,18 +1,21 @@
 ---
+# opendistro plugin version
+opendistro_plugin_version: 1.9.0.0
+
+# URL to download the opendistro plugins
+opendistro_plugin_url: https://d3g5vo6xdbdb9a.cloudfront.net/downloads/
+
 # Variables for Opendistro security plugin installation
 
-# Install opendistro plugin in elasticsearch
+# Install opendistro security plugin in elasticsearch
 opendistro_security_install: true
 
 # Install opendistro security plugin in Kibana
 # The security plugin has a corresponding Kibana plugin that you probably want to install as well.
 opendistro_security_install_kibana: true
 
-# opendistro plugin version
-opendistro_security_version: 1.9.0.0
-
-# URL to download the opendistro plugins
-opendistro_security_download_url: https://d3g5vo6xdbdb9a.cloudfront.net/downloads/elasticsearch-plugins/opendistro-security/
+opendistro_security_download_url: elasticsearch-plugins/opendistro-security/
+opendistro_security_kibana_download_url: kibana-plugins/opendistro-security/
 
 ## Admin user credentials will be used for User & Roles management and cluster operations
 admin_password: Test@123
@@ -20,5 +23,40 @@ admin_password: Test@123
 ## Kibana server credentials will be used internally by the Kibana server
 kibanaserver_password: Test@6789
 
-# URL to dowload the opendistro kibana plugins
-opendistro_security_kibana_download_url: https://d3g5vo6xdbdb9a.cloudfront.net/downloads/kibana-plugins/opendistro-security/
+# Variables for Opendistro Alerting plugin installation
+
+# Install opendistro alerting plugin in elasticsearch
+opendistro_alerting_install: true
+
+# Install opendistro alerting plugin in Kibana
+# Alerting has a corresponding Kibana plugin that you probably want to install as well.
+opendistro_alerting_install_kibana: true
+
+opendistro_alerting_download_url: elasticsearch-plugins/opendistro-alerting/
+opendistro_alerting_kibana_download_url: kibana-plugins/opendistro-alerting/
+
+# Variables for Opendistro SQL plugin installation
+
+# Install opendistro alerting plugin in elasticsearch
+opendistro_sql_install: true
+
+opendistro_sql_download_url: elasticsearch-plugins/opendistro-sql/
+
+# Variables for Opendistro Index management plugin installation
+
+# Install opendistro alerting plugin in elasticsearch
+opendistro_ism_install: true
+
+# Install opendistro ISM plugin in Kibana
+# ISM has a corresponding Kibana plugin that you probably want to install as well.
+opendistro_ism_install_kibana: true
+
+opendistro_ism_download_url: elasticsearch-plugins/opendistro-index-management/
+opendistro_ism_kibana_download_url: kibana-plugins/opendistro-index-management/
+
+# Variables for Opendistro Anomaly Detection plugin installation
+
+# Install opendistro Anomaly Detection plugin in elasticsearch
+opendistro_ad_install: true
+
+opendistro_ad_download_url: elasticsearch-plugins/opendistro-anomaly-detection/
