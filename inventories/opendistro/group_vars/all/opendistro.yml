@@ -1,11 +1,15 @@
 ---
 # Variables for Opendistro security plugin installation
 
-# Install opendistro plugin
+# Install opendistro plugin in elasticsearch
 opendistro_security_install: true
 
+# Install opendistro security plugin in Kibana
+# The security plugin has a corresponding Kibana plugin that you probably want to install as well.
+opendistro_security_install_kibana: true
+
 # opendistro plugin version
-opendistro_security_version: 1.3.0.0
+opendistro_security_version: 1.9.0.0
 
 # URL to download the opendistro plugins
 opendistro_security_download_url: https://d3g5vo6xdbdb9a.cloudfront.net/downloads/elasticsearch-plugins/opendistro-security/
@@ -15,9 +19,6 @@ admin_password: Test@123
 
 ## Kibana server credentials will be used internally by the Kibana server
 kibanaserver_password: Test@6789
-
-# Install opendistro security plugin in Kibana
-opendistro_security_install_kibana: true
 
 # URL to dowload the opendistro kibana plugins
 opendistro_security_kibana_download_url: https://d3g5vo6xdbdb9a.cloudfront.net/downloads/kibana-plugins/opendistro-security/
