@@ -33,5 +33,13 @@
   include: opendistro_ad.yml
   when: opendistro_ad_install
 
+- name: Get all the installed ES plugins
+  command: "{{ es_plugin_bin_path }} list"
+  register: list_plugins
+
+- name: Show all the installed ES plugins
+  debug:
+    msg: "{{ list_plugins.stdout }}"
+
 - name: Wait for elasticsearch to startup
   wait_for: host={{ hostvars[inventory_hostname]['ip'] }} port={{es_api_port}} delay=5 connect_timeout=1
