@@ -51,6 +51,7 @@ opendistro_ism_install: true
 # ISM has a corresponding Kibana plugin that you probably want to install as well.
 opendistro_ism_install_kibana: true
 
+opendistro_js_download_url: elasticsearch-plugins/opendistro-job-scheduler/
 opendistro_ism_download_url: elasticsearch-plugins/opendistro-index-management/
 opendistro_ism_kibana_download_url: kibana-plugins/opendistro-index-management/
 
