@@ -7,4 +7,4 @@
 # Restart service and ensure it is enabled
 
 - name: restart elasticsearch
-  systemd: name=kibana state=restarted enabled=yes
+  systemd: name=elasticsearch state=restarted enabled=yes
