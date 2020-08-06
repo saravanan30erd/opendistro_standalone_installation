@@ -24,3 +24,11 @@
 - name: include opendistro ism for kibana
   include: opendistro_ism_kibana.yml
   when: opendistro_ism_install_kibana
+
+- name: Get all the installed Kibana plugins
+  command: "sudo -u kibana {{ kibana_plugin_bin_path }} list"
+  register: list_plugins
+
+- name: Show all the installed Kibana plugins
+  debug:
+    msg: "{{ list_plugins.stdout }}"
