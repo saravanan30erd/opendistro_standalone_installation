@@ -1,8 +1,8 @@
-es1 ansible_host=10.0.0.10  ansible_user=root ip=10.0.0.10
-es2 ansible_host=10.0.0.11 ansible_user=root ip=10.0.0.11
-es3 ansible_host=10.0.0.12  ansible_user=root ip=10.0.0.12
+es1 ansible_host=192.168.56.101  ansible_user=root ip=192.168.56.101
+es2 ansible_host=192.168.56.102 ansible_user=root ip=192.168.56.102
+es3 ansible_host=192.168.56.103  ansible_user=root ip=192.168.56.103
 
-kibana1 ansible_host=10.0.0.13  ansible_user=root ip=10.0.0.13
+kibana1 ansible_host=192.168.56.104  ansible_user=root ip=192.168.56.104
 
 [es-cluster]
 es1

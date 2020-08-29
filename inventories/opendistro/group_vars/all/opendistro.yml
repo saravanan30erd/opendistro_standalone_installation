@@ -37,14 +37,14 @@ opendistro_alerting_kibana_download_url: kibana-plugins/opendistro-alerting/
 
 # Variables for Opendistro SQL plugin installation
 
-# Install opendistro alerting plugin in elasticsearch
+# Install opendistro SQL plugin in elasticsearch
 opendistro_sql_install: true
 
 opendistro_sql_download_url: elasticsearch-plugins/opendistro-sql/
 
 # Variables for Opendistro Index management plugin installation
 
-# Install opendistro alerting plugin in elasticsearch
+# Install opendistro ISM plugin in elasticsearch
 opendistro_ism_install: true
 
 # Install opendistro ISM plugin in Kibana
