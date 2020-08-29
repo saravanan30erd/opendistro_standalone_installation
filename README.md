@@ -6,7 +6,13 @@ This ansible playbook supports the following,
 - Can be deployed on baremetal and VMs(AWS EC2)
 - Supports most popular **Linux distributions**(Centos7, RHEL7)
 - Install and configure the Apache2.0 opensource elasticsearch and kibana
-- Install and configure opendistro security plugin using standalone install method
+- Install and configure the below opendistro plugins using standalone install method
+    - Security
+    - Anomaly Detection
+    - Job Scheduler
+    - Alerting
+    - SQL
+    - Index State Management
 - Configure TLS/SSL for elasticsearch transport layer(Nodes to Nodes communication) and REST API layer
 - Generate self-signed certificates to configure TLS/SSL for elasticsearch
 - Configure the Internal Users Database with limited users and user-defined passwords
@@ -36,14 +42,16 @@ You can also change the elasticsearch and kibana versions. Please refer the vers
 
 Refer the file `inventories/opendistro/group_vars/all/opendistro.yml` to change the default values for Open Distro installation.
 
-If you want to disable the opendistro security plugin installation completely
+You can customize the opendistro plugins installation by enable or disable it in config file `opendistro.yml`
 
     opendistro_security_install: false
     opendistro_security_install_kibana: false
 
+Note: By default, all the above mentioned plugins will be installed.
+
 Change the opendistro security plugin version
 
-    opendistro_plugin_version: 1.1.0.0
+    opendistro_plugin_version: 1.9.0.0
 
 You can set the reserved users(`admin` and `kibanaserver`) password using `admin_password` and `kibanaserver_password` variables.
 
