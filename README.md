@@ -43,7 +43,7 @@ If you want to disable the opendistro security plugin installation completely
 
 Change the opendistro security plugin version
 
-    opendistro_security_version: 1.1.0.0
+    opendistro_plugin_version: 1.1.0.0
 
 You can set the reserved users(`admin` and `kibanaserver`) password using `admin_password` and `kibanaserver_password` variables.
 
