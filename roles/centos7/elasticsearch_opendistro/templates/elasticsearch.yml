@@ -16,7 +16,7 @@ cluster.initial_master_nodes: ["{{ es_master_nodes }}"]
 
 discovery.zen.minimum_master_nodes: "{{ minimum_master_nodes }}"
 
-node.roles: ["{{ hostvars[inventory_hostname]['roles'] }}"]
+node.roles: [{{ hostvars[inventory_hostname]['roles'] }}]
 
 {% if opendistro_security_install  %}
 opendistro_security.allow_default_init_securityindex: true

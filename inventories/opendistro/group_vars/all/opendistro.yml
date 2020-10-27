@@ -1,6 +1,16 @@
 ---
-# opendistro plugin version
-opendistro_plugin_version: 1.9.0.0
+# opendistro plugin versions for Elasticsearch
+opendistro_security_plugin_version: 1.10.1.0
+opendistro_alerting_plugin_version: 1.10.1.2
+opendistro_sql_plugin_version: 1.10.1.1
+opendistro_ism_plugin_version: 1.10.1.1
+opendistro_ad_plugin_version: 1.10.1.0
+opendistro_js_plugin_version: 1.10.1.0
+
+# opendistro plugin versions for Kibana
+opendistro_security_kibana_plugin_version: 1.10.1.1
+opendistro_alerting_kibana_plugin_version: 1.10.1.1
+opendistro_ism_kibana_plugin_version: 1.10.1.0
 
 # URL to download the opendistro plugins
 opendistro_plugin_url: https://d3g5vo6xdbdb9a.cloudfront.net/downloads/
@@ -53,7 +63,6 @@ opendistro_ism_install_kibana: true
 
 # Kibana ISM plugin - 1.9.0.0 having issues
 # https://github.com/opendistro-for-elasticsearch/index-management-kibana-plugin/issues/101
-opendistro_ism_plugin_version: 1.9.0.1
 
 opendistro_js_download_url: elasticsearch-plugins/opendistro-job-scheduler/
 opendistro_ism_download_url: elasticsearch-plugins/opendistro-index-management/

@@ -1,13 +1,13 @@
 ---
 
-- name: Security Plugin Install | Download Opendistro Elasticsearch security plugin {{ opendistro_plugin_version }}
+- name: Security Plugin Install | Download Opendistro Elasticsearch security plugin {{ opendistro_security_plugin_version }}
   get_url:
-    url: "{{ opendistro_plugin_url }}{{ opendistro_security_download_url }}opendistro_security-{{ opendistro_plugin_version }}.zip"
-    dest: "{{ es_home }}/opendistro_security-{{ opendistro_plugin_version }}.zip"
+    url: "{{ opendistro_plugin_url }}{{ opendistro_security_download_url }}opendistro_security-{{ opendistro_security_plugin_version }}.zip"
+    dest: "{{ es_home }}/opendistro_security-{{ opendistro_security_plugin_version }}.zip"
   register: download
 
 - name: Security Plugin Install | Install the Opendistro security plugin
-  command: "{{ es_plugin_bin_path }} install -b file://{{ es_home }}/opendistro_security-{{ opendistro_plugin_version }}.zip"
+  command: "{{ es_plugin_bin_path }} install -b file://{{ es_home }}/opendistro_security-{{ opendistro_security_plugin_version }}.zip"
   when: download.changed
   register: install
 
@@ -80,18 +80,18 @@
     backup: yes
     insertafter: EOF
     marker: "## {mark} Opendistro Security Node & Admin certificates configuration ##"
-  when: install.changed
+  #when: install.changed
 
 - name: Security Plugin Install | Prepare the opendistro security configuration file
   command: sed -i 's/searchguard/opendistro_security/g' {{ conf_dir }}/elasticsearch.yml
-  when: install.changed
+  #when: install.changed
 
 - name: Security Plugin Install | Restart elasticsearch with security configuration
   systemd:
     name: elasticsearch
     state: restarted
     enabled: yes
-  when: install.changed
+  #when: install.changed
 
 - name: Security Plugin Install | Copy the opendistro security internal users template
   template:
@@ -125,4 +125,4 @@
     -nhnv -icl
     -h {{ hostvars[inventory_hostname]['ip'] }}
   run_once: true
-  when: install.changed
+  #when: install.changed
