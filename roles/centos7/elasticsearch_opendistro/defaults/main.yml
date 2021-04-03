@@ -5,7 +5,7 @@ update_java: false
 es_use_repository: true
 es_package_name: "elasticsearch-oss"
 es_restart_on_change: true
-es_start_service: false
+es_start_service: true
 es_group: "elasticsearch"
 conf_dir: "/etc/elasticsearch"
 es_api_port: 9200
@@ -13,12 +13,12 @@ es_api_host: "localhost"
 
 es_nodes: |-
         {% for item in groups['es-cluster'] -%}
-          {{ hostvars[item]['ip'] }}{% if not loop.last %}","{% endif %}
+          {{ item }}{% if not loop.last %}","{% endif %}
         {%- endfor %}
 
 es_master_nodes: |-
         {% for item in groups['master'] -%}
-          {{ hostvars[item]['ip'] }}{% if not loop.last %}","{% endif %}
+          {{ item }}{% if not loop.last %}","{% endif %}
         {%- endfor %}
 
 populate_inventory_to_hosts_file: true

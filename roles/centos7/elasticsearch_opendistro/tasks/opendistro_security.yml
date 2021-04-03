@@ -73,25 +73,33 @@
     - admin.pem
   when: install.changed
 
-- name: Security Plugin Install | Copy the opendistro security configuration file to cluster
+- name: Security Plugin Install | Copy the opendistro security configuration file 1 to cluster
+  blockinfile:
+    block: "{{ lookup('template', 'templates/security_conf.yml') }}"
+    dest: "{{ conf_dir }}/elasticsearch.yml"
+    backup: yes
+    insertafter: EOF
+    marker: "## {mark} Opendistro Security common configuration ##"
+
+- name: Security Plugin Install | Copy the opendistro security configuration file 2 to cluster
   blockinfile:
     block: "{{ lookup('file', '/tmp/opendistro-nodecerts/config/{{ inventory_hostname }}_elasticsearch_config_snippet.yml') }}"
     dest: "{{ conf_dir }}/elasticsearch.yml"
     backup: yes
     insertafter: EOF
     marker: "## {mark} Opendistro Security Node & Admin certificates configuration ##"
-  #when: install.changed
+  when: install.changed
 
 - name: Security Plugin Install | Prepare the opendistro security configuration file
   command: sed -i 's/searchguard/opendistro_security/g' {{ conf_dir }}/elasticsearch.yml
-  #when: install.changed
+  when: install.changed
 
 - name: Security Plugin Install | Restart elasticsearch with security configuration
   systemd:
     name: elasticsearch
     state: restarted
     enabled: yes
-  #when: install.changed
+  when: install.changed
 
 - name: Security Plugin Install | Copy the opendistro security internal users template
   template:
@@ -125,4 +133,4 @@
     -nhnv -icl
     -h {{ hostvars[inventory_hostname]['ip'] }}
   run_once: true
-  #when: install.changed
+  when: install.changed
