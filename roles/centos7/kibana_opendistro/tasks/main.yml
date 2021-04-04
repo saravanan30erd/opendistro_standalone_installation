@@ -13,6 +13,14 @@
 - name: include kibana installation
   include: kibana.yml
 
+- name: Recursively change ownership of a plugins directory
+  file:
+    path: /usr/share/kibana/plugins
+    state: directory
+    recurse: yes
+    owner: kibana
+    group: kibana
+
 - name: include opendistro security for kibana
   include: opendistro_security_kibana.yml
   when: opendistro_security_install_kibana

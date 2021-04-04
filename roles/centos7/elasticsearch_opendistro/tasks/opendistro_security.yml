@@ -1,13 +1,13 @@
 ---
 
-- name: Security Plugin Install | Download Opendistro Elasticsearch security plugin {{ opendistro_plugin_version }}
+- name: Security Plugin Install | Download Opendistro Elasticsearch security plugin {{ opendistro_security_plugin_version }}
   get_url:
-    url: "{{ opendistro_plugin_url }}{{ opendistro_security_download_url }}opendistro_security-{{ opendistro_plugin_version }}.zip"
-    dest: "{{ es_home }}/opendistro_security-{{ opendistro_plugin_version }}.zip"
+    url: "{{ opendistro_plugin_url }}{{ opendistro_security_download_url }}opendistro-security-{{ opendistro_security_plugin_version }}.zip"
+    dest: "{{ es_home }}/opendistro-security-{{ opendistro_security_plugin_version }}.zip"
   register: download
 
 - name: Security Plugin Install | Install the Opendistro security plugin
-  command: "{{ es_plugin_bin_path }} install -b file://{{ es_home }}/opendistro_security-{{ opendistro_plugin_version }}.zip"
+  command: "{{ es_plugin_bin_path }} install -b file://{{ es_home }}/opendistro-security-{{ opendistro_security_plugin_version }}.zip"
   when: download.changed
   register: install
 
@@ -73,7 +73,15 @@
     - admin.pem
   when: install.changed
 
-- name: Security Plugin Install | Copy the opendistro security configuration file to cluster
+- name: Security Plugin Install | Copy the opendistro security configuration file 1 to cluster
+  blockinfile:
+    block: "{{ lookup('template', 'templates/security_conf.yml') }}"
+    dest: "{{ conf_dir }}/elasticsearch.yml"
+    backup: yes
+    insertafter: EOF
+    marker: "## {mark} Opendistro Security common configuration ##"
+
+- name: Security Plugin Install | Copy the opendistro security configuration file 2 to cluster
   blockinfile:
     block: "{{ lookup('file', '/tmp/opendistro-nodecerts/config/{{ inventory_hostname }}_elasticsearch_config_snippet.yml') }}"
     dest: "{{ conf_dir }}/elasticsearch.yml"

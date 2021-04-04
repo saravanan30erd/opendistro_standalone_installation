@@ -6,7 +6,7 @@ This ansible playbook supports the following,
 - Can be deployed on baremetal and VMs(AWS EC2)
 - Supports most popular **Linux distributions**(Centos7, RHEL7)
 - Install and configure the Apache2.0 opensource elasticsearch and kibana
-- Install and configure the below opendistro plugins using standalone install method
+- Install and configure the below opendistro plugins using [standalone install method](https://opendistro.github.io/for-elasticsearch-docs/docs/install/plugins/)
     - Security
     - Anomaly Detection
     - Job Scheduler
@@ -32,11 +32,26 @@ For example we need to increase the java memory heap size for elasticsearch,
     xms_value: 8
     xmx_value: 8
 
-By default, it will install three node elasticsearch cluster. But if you want to setup five node elasticsearch cluster then you can increase the `minimum_master_nodes`.
+By default, it will install five nodes elasticsearch cluster with respective roles (3 master, 5 data and 2 ingest nodes).
 
-    minimum_master_nodes: 3
+```
+es1 ansible_host=10.0.1.1 ip=10.0.1.1 roles=data,master
+es2 ansible_host=10.0.1.2 ip=10.0.1.2 roles=data,master
+es3 ansible_host=10.0.1.3 ip=10.0.1.3 roles=data,master
+es4 ansible_host=10.0.1.4 ip=10.0.1.4 roles=data,ingest
+es5 ansible_host=10.0.1.5 ip=10.0.1.5 roles=data,ingest
+```
 
-Note: You need to add additional nodes details(e.g. `es4 and es5`) in `inventories/opendistro/hosts` file for five nodes elasticsearch cluster.
+**Note**: You need to add additional nodes details in `inventories/opendistro/hosts` file for creating elasticsearch cluster with different node sizes.
+
+For example, if you want to create seven nodes cluster with two additional data nodes (`es6` and `es7`) then you need to add the below entries.
+
+```
+es6 ansible_host=10.0.1.6 ip=10.0.1.6 roles=data
+es7 ansible_host=10.0.1.7 ip=10.0.1.5 roles=data
+```
+
+You can mention the elasticsearch node roles details in `roles` parameter.
 
 You can also change the elasticsearch and kibana versions. Please refer the version compatibility with [Open Distro](https://opendistro.github.io/for-elasticsearch-docs/version-history/).
 
@@ -48,10 +63,6 @@ You can customize the opendistro plugins installation by enable or disable it in
     opendistro_security_install_kibana: false
 
 Note: By default, all the above mentioned plugins will be installed.
-
-Change the opendistro security plugin version
-
-    opendistro_plugin_version: 1.9.0.0
 
 You can set the reserved users(`admin` and `kibanaserver`) password using `admin_password` and `kibanaserver_password` variables.
 

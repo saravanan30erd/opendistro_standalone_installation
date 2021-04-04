@@ -34,3 +34,17 @@
   become: yes
   service: name=elasticsearch state=started enabled=yes
   when: es_start_service
+
+- name: Check the Elasticsearch cluster status
+  command: curl http://{{ inventory_hostname }}:9200/_cluster/health?pretty
+  register: es_status
+  run_once: true
+
+- name: Show the Elasticsearch cluster status
+  debug:
+    msg: "{{ es_status.stdout }}"
+
+# After the cluster forms successfully for the first time,
+# remove the cluster.initial_master_nodes setting from each nodes' configuration.
+- name: Remove `cluster.initial_master_nodes` setting
+  command: sed -i '/cluster.initial_master_nodes/d' /etc/elasticsearch/elasticsearch.yml
