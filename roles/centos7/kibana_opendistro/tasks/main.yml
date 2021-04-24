@@ -37,6 +37,10 @@
   include: opendistro_ad_kibana.yml
   when: opendistro_ad_install_kibana
 
+- name: include opendistro Reports for kibana
+  include: opendistro_reports_kibana.yml
+  when: opendistro_reports_install_kibana
+
 - name: Get all the installed Kibana plugins
   command: "sudo -u kibana {{ kibana_plugin_bin_path }} list"
   register: list_plugins

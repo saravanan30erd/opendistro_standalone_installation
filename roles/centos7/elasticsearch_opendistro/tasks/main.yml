@@ -41,6 +41,10 @@ tasks file for elasti- name: include java.yml
   include: opendistro_asyncsearch.yml
   when: opendistro_asyncsearch_install
 
+- name: include opendistro Reports scheduler plugin for elasticsearch
+  include: opendistro_reports_scheduler.yml
+  when: opendistro_reports_scheduler_install
+
 - name: Get all the installed ES plugins
   command: "{{ es_plugin_bin_path }} list"
   register: list_plugins
