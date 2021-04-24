@@ -6,6 +6,7 @@ opendistro_sql_plugin_version: 1.13.2.0
 opendistro_ism_plugin_version: 1.13.2.0
 opendistro_ad_plugin_version: 1.13.0.0
 opendistro_js_plugin_version: 1.13.0.0
+opendistro_asyncsearch_plugin_version: 1.13.0.1
 
 # opendistro plugin versions for Kibana
 opendistro_security_kibana_plugin_version: 1.13.0.1
@@ -80,3 +81,8 @@ opendistro_ad_download_url: elasticsearch-plugins/opendistro-anomaly-detection/
 opendistro_ad_install_kibana: true
 
 opendistro_ad_kibana_download_url: kibana-plugins/opendistro-anomaly-detection/
+
+# Variables for Opendistro Asynchronous search plugin installation
+opendistro_asyncsearch_install: true
+
+opendistro_asyncsearch_download_url: elasticsearch-plugins/opendistro-asynchronous-search/
