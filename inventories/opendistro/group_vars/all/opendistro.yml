@@ -11,6 +11,7 @@ opendistro_js_plugin_version: 1.13.0.0
 opendistro_security_kibana_plugin_version: 1.13.0.1
 opendistro_alerting_kibana_plugin_version: 1.13.0.0
 opendistro_ism_kibana_plugin_version: 1.13.0.1
+opendistro_ad_kibana_plugin_version: 1.13.0.0
 
 # URL to download the opendistro plugins
 opendistro_plugin_url: https://d3g5vo6xdbdb9a.cloudfront.net/downloads/
@@ -74,3 +75,8 @@ opendistro_ism_kibana_download_url: kibana-plugins/opendistro-index-management/
 opendistro_ad_install: true
 
 opendistro_ad_download_url: elasticsearch-plugins/opendistro-anomaly-detection/
+
+# Install opendistro Anomaly Detection plugin in Kibana
+opendistro_ad_install_kibana: true
+
+opendistro_ad_kibana_download_url: kibana-plugins/opendistro-anomaly-detection/
