@@ -2,8 +2,8 @@
 # opendistro plugin versions for Elasticsearch
 opendistro_security_plugin_version: 1.13.1.0
 opendistro_alerting_plugin_version: 1.13.1.0
-opendistro_sql_plugin_version: 1.13.0.0
-opendistro_ism_plugin_version: 1.13.1.0
+opendistro_sql_plugin_version: 1.13.2.0
+opendistro_ism_plugin_version: 1.13.2.0
 opendistro_ad_plugin_version: 1.13.0.0
 opendistro_js_plugin_version: 1.13.0.0
 
