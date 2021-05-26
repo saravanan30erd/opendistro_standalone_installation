@@ -1,5 +1,5 @@
 ---
-tasks file for elasti- name: include java.yml
+
 - hostname:
     name: "{{ inventory_hostname }}"
 
