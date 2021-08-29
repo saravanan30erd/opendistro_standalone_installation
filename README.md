@@ -6,13 +6,22 @@ This ansible playbook supports the following,
 - Can be deployed on baremetal and VMs(AWS EC2)
 - Supports most popular **Linux distributions**(Centos7, RHEL7)
 - Install and configure the Apache2.0 opensource elasticsearch and kibana
-- Install and configure the below opendistro plugins using [standalone install method](https://opendistro.github.io/for-elasticsearch-docs/docs/install/plugins/)
+- Install and configure the below Elasticsearch opendistro plugins using [standalone install method](https://opendistro.github.io/for-elasticsearch-docs/docs/install/plugins/)
     - Security
     - Anomaly Detection
     - Job Scheduler
     - Alerting
     - SQL
     - Index State Management
+    - Asynchronous Search
+    - Reports scheduler
+- Install and configure the below Kibana opendistro plugins using [standalone install method](https://opendistro.github.io/for-elasticsearch-docs/docs/kibana/plugins/)
+    - Security
+    - Anomaly Detection
+    - Alerting
+    - Index State Management
+    - Reports
+    - SQL Workbench
 - Configure TLS/SSL for elasticsearch transport layer(Nodes to Nodes communication) and REST API layer
 - Generate self-signed certificates to configure TLS/SSL for elasticsearch
 - Configure the Internal Users Database with limited users and user-defined passwords

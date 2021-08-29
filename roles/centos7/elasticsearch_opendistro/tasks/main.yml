@@ -37,6 +37,14 @@
   include: opendistro_ad.yml
   when: opendistro_ad_install
 
+- name: include opendistro Asynchronous search plugin for elasticsearch
+  include: opendistro_asyncsearch.yml
+  when: opendistro_asyncsearch_install
+
+- name: include opendistro Reports scheduler plugin for elasticsearch
+  include: opendistro_reports_scheduler.yml
+  when: opendistro_reports_scheduler_install
+
 - name: Get all the installed ES plugins
   command: "{{ es_plugin_bin_path }} list"
   register: list_plugins

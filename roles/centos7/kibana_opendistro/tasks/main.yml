@@ -3,6 +3,10 @@
 - hostname:
     name: "{{ inventory_hostname }}"
 
+- name: Disable the selinux
+  selinux:
+    state: disabled
+
 - name: Populate the nodes to /etc/hosts
   import_tasks: etchosts.yml
 
@@ -32,6 +36,18 @@
 - name: include opendistro ism for kibana
   include: opendistro_ism_kibana.yml
   when: opendistro_ism_install_kibana
+
+- name: include opendistro Anomaly Detection for kibana
+  include: opendistro_ad_kibana.yml
+  when: opendistro_ad_install_kibana
+
+- name: include opendistro Reports for kibana
+  include: opendistro_reports_kibana.yml
+  when: opendistro_reports_install_kibana
+
+- name: include opendistro workbench for kibana
+  include: opendistro_workbench_kibana.yml
+  when: opendistro_workbench_install_kibana
 
 - name: Get all the installed Kibana plugins
   command: "sudo -u kibana {{ kibana_plugin_bin_path }} list"
