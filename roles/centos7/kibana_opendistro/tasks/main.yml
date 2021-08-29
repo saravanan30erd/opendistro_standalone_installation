@@ -3,6 +3,10 @@
 - hostname:
     name: "{{ inventory_hostname }}"
 
+- name: Disable the selinux
+  selinux:
+    state: disabled
+
 - name: Populate the nodes to /etc/hosts
   import_tasks: etchosts.yml
 

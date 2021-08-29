@@ -2,7 +2,7 @@
 
 - name: Reports Plugin Install | Download Opendistro Kibana reports plugin {{ opendistro_reports_kibana_plugin_version }}
   get_url:
-    url: "{{ opendistro_plugin_url }}{{ opendistro_reports_kibana_download_url }}opendistroReportsKibana-{{ opendistro_reports_kibana_plugin_version }}.zip"
+    url: "{{ opendistro_plugin_url }}{{ opendistro_reports_kibana_download_url }}opendistroReportsKibana-{{ opendistro_reports_kibana_plugin_version }}-linux-x64.zip"
     dest: "/usr/share/kibana/opendistro-reports-{{ opendistro_reports_kibana_plugin_version }}.zip"
   register: download
 
